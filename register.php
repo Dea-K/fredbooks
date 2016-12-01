@@ -1,7 +1,20 @@
 <?php $page = 'register' ?>
+<?php include "db.php";
+  if(isset($_POST['register-submit'])) {
+    DB::CreateUser(
+      $_POST['username'],
+      $_POST['password'],
+      $_POST['first-name'],
+      $_POST['last-name'],
+      $_POST['email'],
+      $_POST['phone']
+    );
+    header('Location: index.php');
+  }
+?>
 
 <?php include "top.php" ?>
-<form class="register-form" action="index.html" method="post">
+<form class="register-form" method="post">
   <div class="rg-child">
     <label for="username">Username:</label>
     <input type="text" name="username" placeholder="Type Username" required>
