@@ -4,25 +4,25 @@
 <form class="register-form" action="index.html" method="post">
   <div class="rg-child">
     <label for="username">Username:</label>
-    <input type="text" name="username" placeholder="type username">
+    <input type="text" name="username" placeholder="Type Username" required>
 
     <label for="password">Password:</label>
-    <input type="password" name="password" placeholder="type password">
+    <input type="password" name="password" placeholder="Type Password" required>
 
     <label for="first-name">First Name:</label>
-    <input type="text" name="first-name" placeholder="first name here">
+    <input type="text" name="first-name" placeholder="Your First Name" required>
 
     <label for="last-name">Last Name:</label>
-    <input type="text" name="last-name" placeholder="last name here">
+    <input type="text" name="last-name" placeholder="Your Last Name" required>
 
     <label for="email">Email:</label>
-    <input type="text" name="email" placeholder="example.ex@example.com">
+    <input type="text" name="email" placeholder="example.ex@example.com" required>
 
     <label for="phone">Phone #:</label>
-    <input type="text" name="phone" placeholder="000-000-0000">
+    <input type="text" name="phone" placeholder="000-000-0000" required>
 
 
-    <button type="submit" name="register-submit">Submit!</button>
+    <button type="submit" name="register-submit">Register</button>
   </div>
 </form>
 <?php include "bottom.php" ?>

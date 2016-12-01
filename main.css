@@ -142,6 +142,7 @@ nav ul li a:visited
 }
 
 .search button:hover {
+   background-color: black;
    box-shadow: 0 -12px 35px 0 rgba(255,255,255,0.5),0 12px 35px 0 rgba(255,255,255,0.5);
 }
 
@@ -163,6 +164,7 @@ nav ul li a:visited
 }
 
 #register-button:hover {
+   background-color: black;
    transition-duration: 0.4s;
    box-shadow: 0 -12px 35px 0 rgba(255,255,255,0.5),0 12px 35px 0 rgba(255,255,255,0.5);
 }
@@ -181,20 +183,62 @@ nav ul li a:visited
   height: 90%;
   width: 90%;
   position: relative;
-  background-color: black;
   top: 5%;
   bottom: 5%;
   left: 5%;
   right: 5%;
   font-size: 3em;
-  color: white;
+  color: black;
 }
 
 .rg-child>label{
+  margin-top: 2%;
   display: inline-block;
   width: 100%;
   text-align: center;
-  background-color: red;
+}
+
+.rg-child>input {
+  width: 40%;
+  height: 40px;
+  margin-top: 2%;
+  margin-left: 30%;
+  margin-right: 30%;
+  display: inline-block;
+  font-size: 0.7em;
+  font-family: Acme;
+  text-align: center;
+}
+
+.rg-child>input:focus {
+  border-width: 3px;
+  border-color: blue;
+  border-style: inset;
+}
+
+.rg-child:first-child {
+  position: relative;
+  top: 0;
+}
+
+.rg-child button {
+  position: relative;
+  top: 5%;
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
+  height: 70px;
+  font-size: 1em;
+  font-family: Acme;
+  line-height: 70px;
+  background-color: rgb(2, 63, 178);
+  color: white;
+  border-radius: 20px;
+}
+
+.rg-child button:hover {
+  transition-duration: 0.4s;
+  box-shadow: 0 -12px 35px 0 rgba(155,63,22,0.5),0 12px 35px 0 rgba(155,63,22,0.5);
 }
 
 footer {
