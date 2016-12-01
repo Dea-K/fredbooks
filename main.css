@@ -1,28 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Acme');
 
 html, body {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/df/Pile_of_books.jpg');
+  background-size: cover;
   margin: 0;
   padding: 0;
   height: 100%;
-}
-
-body:before {
-  content: "";
-  position: absolute;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/df/Pile_of_books.jpg');
-  background-size: cover;
-  height: 26%;
-  width: 20%;
-  z-index: -1;
-
-  transform: scale(5);
-  transform-origin: top left;
-  filter: blur(0.6px);
 }
 
 header {
@@ -182,6 +165,36 @@ nav ul li a:visited
 #register-button:hover {
    transition-duration: 0.4s;
    box-shadow: 0 -12px 35px 0 rgba(255,255,255,0.5),0 12px 35px 0 rgba(255,255,255,0.5);
+}
+
+.register-form{
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 1000px;
+  width: 80%;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.register-form>.rg-child {
+  height: 90%;
+  width: 90%;
+  position: relative;
+  background-color: black;
+  top: 5%;
+  bottom: 5%;
+  left: 5%;
+  right: 5%;
+  font-size: 3em;
+  color: white;
+}
+
+.rg-child>label{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  background-color: red;
 }
 
 footer {
