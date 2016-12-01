@@ -5,4 +5,5 @@
     <input type="text" name="isbn" placeholder="ISBN, Author, Title, Course, or Instructor...">
     <button type="submit">Search</button>
   </form>
+  <a id="register-button" href="register.php">Register</a>
 <?php include "bottom.php"; ?>
