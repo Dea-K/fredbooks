@@ -1,3 +1,7 @@
+.loged {
+  display: none;
+}
+
 .login-container {
   width: 100%;
   display: inline-block;
@@ -32,12 +36,19 @@
   margin-top: 1%;
   margin-right: 5%;
   float: right;
-  height: 40px;
+  height: 50px;
   width: 10%;
-  color: black;
+  color: white;
   font-family: Acme;
   font-weight: bold;
   font-size: 1.5em;
+  background-color: rgb(2, 63, 178);
+  border-radius: 10px;
+}
+
+.login button:hover{
+  border: 5px solid white;
+  background-color: rgba(20, 63, 180, 0.5);
 }
 
 .login input:focus, .login input:hover {

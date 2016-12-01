@@ -32,6 +32,7 @@ header {
 nav {
   margin: 0;
   margin-top: 1%;
+  margin-left: 1%;
   height: 12%;
 }
 
@@ -43,7 +44,7 @@ nav ul {
 }
 
 nav ul li {
-  width: 25%;
+  width: 33%;
   height: 100%;
   margin: 0;
   display: flex;
@@ -129,10 +130,11 @@ nav ul li a:visited
   width: 15%;
   height: 90px;
   float: left;
-  border-radius: 20px;
   font-size: 2.5em;
-  color: white;
+  font-family: Acme;
+  border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.9);
+  color: white;
   margin-left: 1%;
   margin-top: 5%;
   margin-right: 3%;
@@ -159,6 +161,7 @@ nav ul li a:visited
   text-decoration: none;
   font-size: 2.4em;
   font-weight: bold;
+  font-family: Acme;
   color: white;
   cursor: default;
 }

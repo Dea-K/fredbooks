@@ -19,9 +19,6 @@
         <li class="<?php echo $page == 'market' ? 'current': '' ?>">
           <a href="market.php">Market</a>
         </li>
-        <li class="<?php echo $page == 'forum' ? 'current': '' ?>">
-          <a href="forum.php">Forum</a>
-        </li>
         <li class="<?php echo $page == 'contact' ? 'current': '' ?>">
           <a href="contact.php">Contact</a>
         </li>
