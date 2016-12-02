@@ -16,10 +16,17 @@ $sql->bind_param("s", $username);
 $sql->execute();
 $sql->bind_result($foundName, $foundPassword, $foundId);
 $sql->fetch();
-if($foundName == $username && $foundPassword == $password) {
-  $_SESSION["logedUserName"] = $foundName;
-  header("Location: index.php");
+if($foundName == $username) {
+  if($foundPassword == $password) {
+    $_SESSION["logedUserName"] = $foundName;
+    header("Location: index.php");
+  }
+  else {
+    session_destroy();
+    header("Location: index.php");
+  }
 } else {
+  session_destroy();
   header("Location: index.php");
 }
  ?>
