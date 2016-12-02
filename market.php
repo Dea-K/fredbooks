@@ -5,36 +5,27 @@
 
 <div class="market-container">
     <div class="drop-market-container">
-      <table class="drop-market-btn" border="1">
+      <table class="drop-market-btn">
         <tr>
           <td rowspan="2" colspan="6" class="book-image">IMAGE</td>
-          <td colspan="1">Title</td>
-          <td colspan="1">Class</td>
-          <td colspan="1">Price</td>
+          <td colspan="1" class="left-border">Title</td>
+          <td colspan="1" class="left-border">Class</td>
+          <td colspan="1" class="left-border">Price</td>
         </tr>
-        <tr>
-          <td colspan="1">edition</td>
-          <td colspan="1">Status</td>
-          <td colspan="1">Major</td>
+        <tr class="upper-border">
+          <td colspan="1" class="left-border">edition</td>
+          <td colspan="1" class="left-border">Status</td>
+          <td colspan="1" class="left-border">Major</td>
         </tr>
       </table>
       <div class="drop-market-content">
-          <p>list1</p><p>list1</p>
-          <p>list2</p><p>list1</p>
-          <p>list3</p><p>list1</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <button class="market-btn"><span>Send email</span></button>
       </div>
     </div>
+
 </div>
+<button class="book-register-btn">Register Book</button>
 
-
-
-<div class="dropdown">
-  <button class="dropbtn">DropDown</button>
-  <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-  </div>
-</div>
 
 <?php include "bottom.php" ?>
