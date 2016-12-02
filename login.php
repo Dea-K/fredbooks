@@ -7,11 +7,10 @@
   }
   if(isset($_POST["logout"])) {
     $_SESSION["logedIn"] = 'not';
+    session_destroy();
   }
 ?>
 <div class="<?php echo $_SESSION["logedIn"] == 'loged' ? 'loged':'login-container' ?>">
-<!-- <div class="login-container"> -->
-  <!-- <form class="login" action="authenticate.php" method="post"> -->
   <form class="login" action="authenticate.php" method="post">
       <label for="username">Username:</label>
       <input type="text" name="username" placeholder="Enter username">
@@ -21,7 +20,7 @@
       <button type="submit" name="login">Log in</button>
   </form>
 </div>
-
+<!-- Needed when loged in -->
 <div class="<?php echo $_SESSION["logedIn"] == 'loged' ? 'user-info':'user-info-notloged' ?>">
   Welcome <?php echo $_SESSION["username"] ?>!
   <form class="logout-form" action="index.php" method="post">

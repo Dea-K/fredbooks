@@ -140,7 +140,6 @@ nav ul li a:visited
   margin-right: 3%;
   transition-duration: 0.4s;
   overflow: hidden;
-  /*cursor: pointer;*/
 }
 
 .search button:hover {
