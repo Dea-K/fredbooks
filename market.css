@@ -72,6 +72,13 @@
   font-family: Acme;
 }
 
+.drop-market-btn td:hover {
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  transition-duration: 0.3s;
+}
+
 .drop-market-content {
   display: none;
   background-color: rgba(155, 63, 22, 0.5);
@@ -91,6 +98,7 @@
 
 .drop-market-container:hover .drop-market-content {
   display:block;
+  transition-duration: 0.3s;
 }
 
 .drop-market-container:hover .drop-market-btn {

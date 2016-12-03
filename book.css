@@ -1,0 +1,66 @@
+.register-book-form {
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: auto;
+  width: 80%;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.register-book-form>.book-child {
+  height: 90%;
+  width: 90%;
+  position: relative;
+  top: 5%;
+  bottom: 5%;
+  left: 5%;
+  right: 5%;
+  font-size: 3em;
+  color: black;
+}
+
+.book-child label {
+  margin-top: 2%;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.book-child input {
+  width: 40%;
+  height: 40px;
+  margin-top: 2%;
+  margin-left: 30%;
+  margin-right: 30%;
+  display: inline-block;
+  font-size: 0.7em;
+  font-family: Acme;
+  text-align: center;
+}
+
+.book-child input:focus {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.book-child button {
+  position: relative;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
+  height: 70px;
+  font-size: 1em;
+  font-family: Acme;
+  line-height: 70px;
+  background-color: rgb(2, 63, 178);
+  color: white;
+  border-radius: 20px;
+}
+
+.book-child button:hover {
+  transition-duration: 0.4s;
+  box-shadow: 0 -12px 35px 0 rgba(155,63,22,0.5),0 12px 35px 0 rgba(155,63,22,0.5);
+}

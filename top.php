@@ -8,6 +8,7 @@
     <link href="main.css?ts=<?=time()?>&quot" rel="stylesheet" type="text/css">
     <link href="login.css?ts=<?=time()?>&quot" rel="stylesheet" type="text/css">
     <link href="market.css?ts=<?=time()?>&quot" rel="stylesheet" type="text/css">
+    <link href="book.css?ts=<?=time()?>&quot" rel="stylesheet" type="text/css">
   </head>
   <body>
     <header>

@@ -25,7 +25,7 @@
     </div>
 
 </div>
-<button class="book-register-btn">Register Book</button>
+<a href="register-book.php"><button class="book-register-btn">Register Book</button></a>
 
 
 <?php include "bottom.php" ?>
