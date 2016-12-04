@@ -15,6 +15,14 @@ if(isset($_POST["register-book-button"])) {
                   $_POST["book-isbn"],
                   $_POST["book-price"],
                   $_SESSION["logedID"]);
+  $bookId = DB::GetBookId($_POST["book-title"],
+                          $_POST["book-author"],
+                          $_POST["book-isbn"],
+                          $_POST["book-price"],
+                          $_SESSION["logedID"]);
+  DB::CreateBookStatus($bookId, $_POST["status-purchased"], $_POST["status-condition"]);
+  DB::CreateUsage($bookId, $_POST["usage-major"], $_POST["usage-course"], $_POST["usage-instructor"]);
+  // TODO proper redirect
   header("Location: market.php");
 }
 else {

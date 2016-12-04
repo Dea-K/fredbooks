@@ -33,6 +33,43 @@ class DB{
     $connection->close();
   }
 
+  public static function GetBookId($title, $author, $isbn, $price, $userId) {
+    $connection = DB::CreateConnection();
+    $sql = $connection->prepare("
+      SELECT id FROM Book WHERE title = ? &&
+                                author = ? &&
+                                ISBN = ? &&
+                                price = ? &&
+                                user_id = ?
+    ");
+    $sql->bind_param("ssssi", $title, $author, $isbn, $price, $userId);
+    $sql->execute();
+    $sql->bind_result($foundBookId);
+    $sql->fetch();
+    return $foundBookId;
+    $connection->close();
+  }
+
+  public static function CreateBookStatus($bookId, $purchased, $condition) {
+    $connection = DB::CreateConnection();
+    $sql = $connection->prepare("
+      INSERT INTO Book_Status (`condition`, purchased, book_id) VALUES (?, ?, ?)
+    ");
+    $sql->bind_param("ssi", $condition, $purchased, $bookId);
+    $sql->execute();
+    $connection->close();
+  }
+
+  public static function CreateUsage($bookId, $major, $course, $instructor) {
+    $connection = DB::CreateConnection();
+    $sql = $connection->prepare("
+      INSERT INTO `Usage` (book_id, major, course, instructor) VALUES (?, ?, ?, ?)
+    ");
+    $sql->bind_param("isss", $bookId, $major, $course, $instructor);
+    $sql->execute();
+    $connection->close();
+  }
+
   public static function UserIdByUsernameAndPassword($username, $password) {
     $connection = DB::CreateConnection();
     $sql = $connection->prepare("
