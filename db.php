@@ -28,8 +28,23 @@ class DB{
     $sql = $connection->prepare("
       INSERT INTO Book(title, author, ISBN, price, user_id) VALUES(?, ?, ?, ?, ?)
     ");
-    $sql->bing_param("sssss", $title, $author, $isbn, $price, $userId);
+    $sql->bind_param("ssssi", $title, $author, $isbn, $price, $userId);
     $sql->execute();
+    $connection->close();
+  }
+
+  public static function UserIdByUsernameAndPassword($username, $password) {
+    $connection = DB::CreateConnection();
+    $sql = $connection->prepare("
+      SELECT id FROM User WHERE username = ? && pw = ?
+    ");
+    if(!$sql->bind_param("ss", $username, $password)) {
+      die("bind error");
+    }
+    $sql->execute();
+    $sql->bind_result($userId);
+    $sql->fetch();
+    return $userId;
     $connection->close();
   }
 

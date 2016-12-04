@@ -19,6 +19,7 @@ $sql->fetch();
 if($foundName == $username) {
   if($foundPassword == $password) {
     $_SESSION["logedUserName"] = $foundName;
+    $_SESSION["logedUserPassword"] = $foundPassword;
     header("Location: index.php");
   }
   else {
