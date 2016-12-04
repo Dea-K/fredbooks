@@ -243,6 +243,75 @@ nav ul li a:visited
   box-shadow: 0 -12px 35px 0 rgba(155,63,22,0.5),0 12px 35px 0 rgba(155,63,22,0.5);
 }
 
+.contact-form {
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: auto;
+  width: 80%;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-form>.contact-child {
+  height: 90%;
+  width: 90%;
+  position: relative;
+  top: 5%;
+  bottom: 5%;
+  left: 5%;
+  right: 5%;
+  font-size: 3em;
+  color: black;
+}
+
+.contact-child label {
+  margin-top: 2%;
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+}
+
+.contact-child input{
+  width: 70%;
+  height: 40px;
+  margin-top: 2%;
+  display: inline-block;
+  font-size: 0.7em;
+  font-family: Acme;
+  text-align: center;
+}
+
+.contact-child textarea {
+  width: 80%;
+  height: 300px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 20px;
+}
+
+.contact-child button {
+  position: relative;
+  margin-bottom: 5%;
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
+  height: 70px;
+  font-size: 1em;
+  font-family: Acme;
+  line-height: 70px;
+  background-color: rgb(2, 63, 178);
+  color: white;
+  border-radius: 20px;
+}
+
+.contact-child button:hover {
+  transition-duration: 0.4s;
+  box-shadow: 0 -12px 35px 0 rgba(155,63,22,0.5),0 12px 35px 0 rgba(155,63,22,0.5);
+}
+
 footer {
   margin-top: 5%;
   display: flex;

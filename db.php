@@ -23,7 +23,15 @@ class DB{
     $connection->close();
   }
 
-
+  public static function CreateBook($title, $author, $isbn, $price, $userId) {
+    $connection = DB::CreateConnection();
+    $sql = $connection->prepare("
+      INSERT INTO Book(title, author, ISBN, price, user_id) VALUES(?, ?, ?, ?, ?)
+    ");
+    $sql->bing_param("sssss", $title, $author, $isbn, $price, $userId);
+    $sql->execute();
+    $connection->close();
+  }
 
 }
  ?>
