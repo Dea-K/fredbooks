@@ -3,6 +3,9 @@
   include "login.php";
   include "db.php";
   // search.php
+  ?>
+  <div class="market-container">
+  <?php
   if(isset($_POST['search'])) {
     $bookId = DB::SearchBookIdByTitle($_POST['search-title']);
     $book = DB::GetInfoByBookId(intval($bookId));
@@ -11,7 +14,7 @@
         <table class="drop-market-btn">
           <tr>
             <td rowspan="2">
-              <img class="book-image" src="data:image/jpg;base,' . $book['image'] . '"/>
+              <img class="book-image" src="https://upload.wikimedia.org/wikipedia/commons/6/63/Textbook.JPG"/>
             </td>
             <td class="left-border">' . $book['title'] . '</td>
             <td class="left-border">' . $book['course'] . '</td>
@@ -35,7 +38,7 @@
               </tr>
               <tr>
                 <td>ISBN:</td>
-                <td>' . $book['ISBN'] . '</td>
+                <td>' . $book['isbn'] . '</td>
               </tr>
               <tr>
                 <td>Price:</td>
@@ -66,7 +69,7 @@
                 <td>' . $book['instructor'] . '</td>
               </tr>
             </table>
-            '; if($book['user_id'] == $_SESSION["logedID"]) {
+            '; if(intval($book['user_id']) == intval($_SESSION["logedID"])) {
               echo '<a href="delete-book.php?book-id=' . $book['id'] . '"><button class="loged-delete">DELETE</button></a>';
               echo '<a href="update-book.php?book-id=' . $book['id'] . '"><button class="loged-delete">UPDATE</button></a>';
             } echo '
@@ -76,6 +79,8 @@
         </div>
       </div>
       ';
-    
+
   }
  ?>
+ </div>
+ <?php include "bottom.php"; ?>

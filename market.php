@@ -13,7 +13,7 @@
           <table class="drop-market-btn">
             <tr>
               <td rowspan="2">
-                <img class="book-image" src="data:image/jpg;base,' . $book['image'] . '"/>
+                <img class="book-image" src="https://upload.wikimedia.org/wikipedia/commons/6/63/Textbook.JPG"/>
               </td>
               <td class="left-border">' . $book['title'] . '</td>
               <td class="left-border">' . $book['course'] . '</td>

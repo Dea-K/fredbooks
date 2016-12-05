@@ -2,7 +2,7 @@
 
 <?php include "top.php" ?>
 <?php include "login.php" ?>
-<form class="contact-form" action="index.php" method="post">
+<form class="contact-form" action="contact-submit.php" method="post">
   <div class="contact-child">
     <label for="contact-title">Title:</label>
     <input type="text" name="contact-title">

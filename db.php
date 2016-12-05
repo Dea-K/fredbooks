@@ -106,7 +106,7 @@ class DB{
   public static function GetInfoByBookId($bookId) {
     $connection = DB::CreateConnection();
     $sql = $connection->prepare("
-      SELECT Book.title, Book.author, Book.ISBN, Book.price, Book.image,
+      SELECT Book.title, Book.author, Book.ISBN, Book.price, Book.image,Book.id, Book.user_id,
       Book_Status.purchased, Book_Status.`condition`,
       `Usage`.major, `Usage`.course, `Usage`.instructor
       FROM Book, Book_Status, `Usage`
@@ -114,11 +114,13 @@ class DB{
     ");
     $sql->bind_param("iii", $bookId, $bookId, $bookId);
     $sql->execute();
-    $sql->bind_result($title, $author, $isbn, $price, $image, $purchased, $condition,
+    $sql->bind_result($title, $author, $isbn, $price, $image, $id, $user_id, $purchased, $condition,
                       $major, $course, $instructor);
     $sql->fetch();
     if($title) {
       $book = [];
+      $book['id'] = $id;
+      $book['user_id'] = $user_id;
       $book['title'] = $title;
       $book['author'] = $author;
       $book['isbn'] = $isbn;
@@ -188,6 +190,17 @@ class DB{
     $sql->fetch();
     $connection->close();
     return $id;
+  }
+
+  public static function CreateContact($title, $content, $userId) {
+    $connection = DB::CreateConnection();
+    $userId = intval($userId);
+    $sql = $connection->prepare("
+      INSERT INTO contacts (title, content, user_id) VALUES (?, ?, ?);
+    ");
+    $sql->bind_param("ssi", $title, $content, $userId);
+    $sql->execute();
+    $connection->close();
   }
 
 }
