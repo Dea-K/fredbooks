@@ -15,6 +15,9 @@
 
       <label for="book-price">Price:</label>
       <input type="text" name="book-price" placeholder="(,) not needed">
+
+      <label for="book-image">Picture:</label>
+      <input id="image-upload-input" type="file" name="book-image">
     </fieldset>
     <fieldset>
       <legend>Condition</legend>
