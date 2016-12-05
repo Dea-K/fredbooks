@@ -9,7 +9,6 @@ if(isset($_SESSION["logedUserName"]) &&
    }
 
 if(isset($_POST["register-book-button"])) {
-  $_SESSION["logedID"] = DB::UserIdByUsernameAndPassword($logedUN, $logedPW);
 
         $image = addslashes($_FILES['book-image']['tmp_name']);
         $image = file_get_contents($image);

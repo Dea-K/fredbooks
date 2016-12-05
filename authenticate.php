@@ -20,6 +20,7 @@ if($foundName == $username) {
   if($foundPassword == $password) {
     $_SESSION["logedUserName"] = $foundName;
     $_SESSION["logedUserPassword"] = $foundPassword;
+    $_SESSION["logedID"] = $foundId;
     header("Location: index.php");
   }
   else {

@@ -68,6 +68,9 @@
                   <td>' . $book['instructor'] . '</td>
                 </tr>
               </table>
+              '; if($book['user_id'] == $_SESSION["logedID"]) {
+                echo '<a href="delete-book.php?book-id=' . $book['id'] . '"><button class="loged-delete">DELETE</button></a>';
+              } echo '
               <button class="market-btn">
                 <span>Send email</span>
               </button>

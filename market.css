@@ -66,9 +66,10 @@
 
 .market-btn {
   display: inline-block;
-  margin-left: 85%;
+  margin-left: 37%;
+  margin-right: 37%;
   height: 40px;
-  width: 15%;
+  width: 26%;
   clear: both;
   border-radius: 10px;
   font-size: 1em;
@@ -104,6 +105,29 @@
 .market-btn:hover span:after{
   opacity: 1;
   right: 0;
+}
+
+.loged-delete {
+  display: inline-block;
+  margin-bottom: 2%;
+  margin-left: 37%;
+  margin-right: 37%;
+  height: 40px;
+  width: 26%;
+  border-radius: 10px;
+  float: left;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: Acme;
+
+  background-color: white;
+  border: 2px solid #f44336;
+  transition:all 0.3s;
+}
+
+.loged-delete:hover {
+  background-color: #f44336;
+  color: white;
 }
 
 .book-register-btn{

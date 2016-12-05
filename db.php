@@ -88,7 +88,7 @@ class DB{
   public static function GetAllBooks() {
     $connection = DB::CreateConnection();
     $sql = $connection->query("
-    SELECT Book.title, Book.author, Book.ISBN, Book.price, Book.image,
+    SELECT Book.id, Book.title, Book.author, Book.ISBN, Book.price, Book.image, Book.user_id,
 	         Book_Status.purchased, Book_Status.`condition`,
            `Usage`.major, `Usage`.course, `Usage`.instructor
     FROM Book, Book_Status, `Usage`
@@ -100,6 +100,26 @@ class DB{
       $books[] = $row;
     }
     return $books;
+    $connection->close();
+  }
+
+  public static function DeleteBookByBookId($bookId) {
+    $connection = DB::CreateConnection();
+    $sql = $connection->prepare("
+      DELETE FROM Book WHERE id=?;
+    ");
+    $sql->bind_param("i", $bookId);
+    $sql->execute();
+    $sql = $connection->prepare("
+      DELETE FROM Book_Status WHERE Book_Status.book_id = ?;
+    ");
+    $sql->bind_param("i", $bookId);
+    $sql->execute();
+    $sql = $connection->prepare("
+      DELETE FROM `Usage` WHERE `Usage`.book_id=?;
+    ");
+    $sql->bind_param("i", $bookId);
+    $sql->execute();
     $connection->close();
   }
 
