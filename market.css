@@ -9,58 +9,13 @@
   background-color: rgba(255, 255, 255, 0.8);
   display: inline-block;
 }
-
-/* Drop Down Sample */
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropbtn{
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-}
-
 /* dropdown for market table */
 
 .drop-market-container {
   width: 100%;
   height: auto;
   display: inline-block;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(155, 63, 22, 0.5);
   border-radius: 30px;
 }
 
@@ -81,14 +36,14 @@
 
 .drop-market-content {
   display: none;
-  background-color: rgba(155, 63, 22, 0.5);
+  background-color: rgba(161, 189, 234, 0.7);
   border-radius: 30px;
-  padding: 10px;
+  padding: 30px;
   color: white;
 }
 
 .drop-market-content:hover {
-  background-color: rgba(155, 63, 22, 0.8);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .drop-market-content p {
@@ -103,6 +58,10 @@
 
 .drop-market-container:hover .drop-market-btn {
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.drop-market-btn td {
+  width: 25%;
 }
 
 .market-btn {
@@ -181,4 +140,27 @@
   border-top: 0;
   border-bottom: 0;
   border-style: dotted;
+}
+
+/* tabls styles */
+
+.book-table, .book-status-table, .usage-table{
+  width: 100%;
+  height: auto;
+  font-size: 1.6em;
+  font-family: Acme;
+  text-align: center;
+  background-color: #777799;
+  border-radius: 10px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.book-table td, .book-status-table td, .usage-table td {
+  width: 50%;
+  height: 65px;
+}
+
+.book-table tr:nth-of-type(2n), .book-status-table tr:nth-of-type(2n), .usage-table tr:nth-of-type(2n) {
+  background-color: #9999ff;
 }

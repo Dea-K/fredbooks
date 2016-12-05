@@ -85,5 +85,31 @@ class DB{
     $connection->close();
   }
 
+  public static function GetAllBooks() {
+    $connection = DB::CreateConnection();
+    $sql = $connection->query("
+    SELECT Book.title, Book.author, Book.ISBN, Book.price,
+	         Book_Status.purchased, Book_Status.`condition`,
+           `Usage`.major, `Usage`.course, `Usage`.instructor
+    FROM Book, Book_Status, `Usage`
+    WHERE Book.id=Book_Status.book_id && Book.id=`Usage`.book_id
+    ORDER BY Book.id
+    ");
+    $books =[];
+    while($row = $sql->fetch_assoc()) {
+      $books[] = $row;
+    }
+    return $books;
+    $connection->close();
+  }
+
 }
+
+// TODO Join query for displaying market
+// SELECT Book.title, Book.author, Book.ISBN, Book.price,
+// 	   Book_Status.`condition`, Book_Status.purchased,
+//        final_lee01.Usage.major, final_lee01.Usage.course, final_lee01.Usage.instructor
+// FROM Book, Book_Status, `Usage`
+// WHERE Book.id=Book_Status.book_id
+// ORDER BY Book.id
  ?>

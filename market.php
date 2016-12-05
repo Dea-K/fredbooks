@@ -4,25 +4,76 @@
 <?php include "login.php" ?>
 
 <div class="market-container">
-    <div class="drop-market-container">
-      <table class="drop-market-btn">
-        <tr>
-          <td rowspan="2" colspan="6" class="book-image">IMAGE</td>
-          <td colspan="1" class="left-border">Title</td>
-          <td colspan="1" class="left-border">Class</td>
-          <td colspan="1" class="left-border">Price</td>
-        </tr>
-        <tr class="upper-border">
-          <td colspan="1" class="left-border">edition</td>
-          <td colspan="1" class="left-border">Status</td>
-          <td colspan="1" class="left-border">Major</td>
-        </tr>
-      </table>
-      <div class="drop-market-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <button class="market-btn"><span>Send email</span></button>
-      </div>
-    </div>
+    <?php
+      include "db.php";
+      $books = DB::GetAllBooks();
+      foreach ($books as $book) {
+        echo '
+        <div class="drop-market-container">
+          <table class="drop-market-btn">
+            <tr>
+              <td rowspan="2"  class="book-image">IMAGE</td>
+              <td class="left-border">' . $book['title'] . '</td>
+              <td class="left-border">' . $book['course'] . '</td>
+              <td class="left-border">$ ' . $book['price'] . '</td>
+            </tr>
+            <tr class="upper-border">
+              <td class="left-border">' . $book['condition'] . '</td>
+              <td class="left-border">' . $book['purchased'] . '</td>
+              <td class="left-border">' . $book['major'] . '</td>
+            </tr>
+          </table>
+          <div class="drop-market-content">
+              <table class="book-table">
+                <tr>
+                  <td>Title:</td>
+                  <td>' . $book['title'] . '</td>
+                </tr>
+                <tr>
+                  <td>Author:</td>
+                  <td>' . $book['author'] . '</td>
+                </tr>
+                <tr>
+                  <td>ISBN:</td>
+                  <td>' . $book['ISBN'] . '</td>
+                </tr>
+                <tr>
+                  <td>Price:</td>
+                  <td>$ ' . $book['price'] . '</td>
+                </tr>
+              </table>
+              <table class="book-status-table">
+                <tr>
+                  <td>Purchased:</td>
+                  <td>' . $book['purchased'] . '</td>
+                </tr>
+                <tr>
+                  <td>Condition:</td>
+                  <td>' . $book['condition'] . '</td>
+                </tr>
+              </table>
+              <table class="usage-table">
+                <tr>
+                  <td>Major:</td>
+                  <td>' . $book['major'] . '</td>
+                </tr>
+                <tr>
+                  <td>Course #:</td>
+                  <td>' . $book['course'] . '</td>
+                </tr>
+                <tr>
+                  <td>Instructor:</td>
+                  <td>' . $book['instructor'] . '</td>
+                </tr>
+              </table>
+              <button class="market-btn">
+                <span>Send email</span>
+              </button>
+          </div>
+        </div>
+        ';
+      }
+    ?>
 
 </div>
 <a href="register-book.php"><button class="book-register-btn">Register Book</button></a>
