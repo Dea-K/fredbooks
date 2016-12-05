@@ -176,5 +176,19 @@ class DB{
     $connection->close();
   }
 
+  public static function SearchBookIdByTitle($title) {
+    $connection = DB::CreateConnection();
+    $title = $title . '%';
+    $sql = $connection->prepare("
+      SELECT id FROM Book WHERE title LIKE ?;
+    ");
+    $sql->bind_param("s", $title);
+    $sql->execute();
+    $sql->bind_result($id);
+    $sql->fetch();
+    $connection->close();
+    return $id;
+  }
+
 }
  ?>
