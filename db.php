@@ -103,6 +103,37 @@ class DB{
     $connection->close();
   }
 
+  public static function GetInfoByBookId($bookId) {
+    $connection = DB::CreateConnection();
+    $sql = $connection->prepare("
+      SELECT Book.title, Book.author, Book.ISBN, Book.price, Book.image,
+      Book_Status.purchased, Book_Status.`condition`,
+      `Usage`.major, `Usage`.course, `Usage`.instructor
+      FROM Book, Book_Status, `Usage`
+      WHERE Book.id = ? && Book_Status.book_id = ? && `Usage`.book_id = ?
+    ");
+    $sql->bind_param("iii", $bookId, $bookId, $bookId);
+    $sql->execute();
+    $sql->bind_result($title, $author, $isbn, $price, $image, $purchased, $condition,
+                      $major, $course, $instructor);
+    $sql->fetch();
+    if($title) {
+      $book = [];
+      $book['title'] = $title;
+      $book['author'] = $author;
+      $book['isbn'] = $isbn;
+      $book['price'] = $price;
+      $book['image'] = $image;
+      $book['purchased'] = $purchased;
+      $book['condition'] = $condition;
+      $book['major'] = $major;
+      $book['course'] = $course;
+      $book['instructor'] = $instructor;
+      return $book;
+    }
+    $connection->close();
+  }
+
   public static function DeleteBookByBookId($bookId) {
     $connection = DB::CreateConnection();
     $sql = $connection->prepare("
@@ -119,6 +150,28 @@ class DB{
       DELETE FROM `Usage` WHERE `Usage`.book_id=?;
     ");
     $sql->bind_param("i", $bookId);
+    $sql->execute();
+    $connection->close();
+  }
+
+  public static function UpdateBookByBookId($title, $author, $isbn, $price,
+                                            $condition, $purchased, $major, $course,
+                                            $instructor, $bookId) {
+    $connection = DB::CreateConnection();
+    $sql = $connection->prepare("
+      UPDATE Book SET title=?, author=?, isbn=?, price=? WHERE id=?;
+    ");
+    $sql->bind_param("ssssi", $title, $author, $isbn, $price, $bookId);
+    $sql->execute();
+    $sql = $connection->prepare("
+      UPDATE Book_Status SET `condition`=?, purchased = ? WHERE Book_Status.book_id = ?;
+    ");
+    $sql->bind_param("ssi", $condition, $purchased, $bookId);
+    $sql->execute();
+    $sql = $connection->prepare("
+      UPDATE `Usage` SET major=?, course=?, instructor=? WHERE `Usage`.book_id=?;
+    ");
+    $sql->bind_param("sssi", $major, $course, $instructor, $bookId);
     $sql->execute();
     $connection->close();
   }

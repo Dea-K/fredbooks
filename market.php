@@ -70,6 +70,7 @@
               </table>
               '; if($book['user_id'] == $_SESSION["logedID"]) {
                 echo '<a href="delete-book.php?book-id=' . $book['id'] . '"><button class="loged-delete">DELETE</button></a>';
+                echo '<a href="update-book.php?book-id=' . $book['id'] . '"><button class="loged-delete">UPDATE</button></a>';
               } echo '
               <button class="market-btn">
                 <span>Send email</span>
