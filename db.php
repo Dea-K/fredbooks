@@ -180,7 +180,7 @@ class DB{
 
   public static function SearchBookIdByTitle($title) {
     $connection = DB::CreateConnection();
-    $title = $title . '%';
+    $title = '%' . $title . '%';
     $sql = $connection->prepare("
       SELECT id FROM Book WHERE title LIKE ?;
     ");
@@ -200,6 +200,32 @@ class DB{
     ");
     $sql->bind_param("ssi", $title, $content, $userId);
     $sql->execute();
+    $connection->close();
+  }
+
+  public static function GetUserIdByBookId($bookId) {
+    $connection = DB::CreateConnection();
+    $bookId = intval($bookId);
+    $sql = $connection->prepare("
+      SELECT user_id FROM Book WHERE id = ?;
+    ");
+    $sql->bind_param("i", $bookId);
+    $sql->execute();
+    $sql->bind_result($userid);
+    return $userid;
+    $connection->close();
+  }
+
+  public static function GetEmailByUserId($userId) {
+    $connection = DB::CreateConnection();
+    $userId = intval($userId);
+    $sql = $connection->prepare("
+      SELECT email FROM User WHERE id = ?;
+    ");
+    $sql->bind_param("i", $userId);
+    $sql->execute();
+    $sql->bind_result($email);
+    return $email;
     $connection->close();
   }
 

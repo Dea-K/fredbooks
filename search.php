@@ -73,7 +73,7 @@
               echo '<a href="delete-book.php?book-id=' . $book['id'] . '"><button class="loged-delete">DELETE</button></a>';
               echo '<a href="update-book.php?book-id=' . $book['id'] . '"><button class="loged-delete">UPDATE</button></a>';
             } echo '
-            <button class="market-btn">
+            <button class="market-btn" disabled>
               <span>Send email</span>
             </button>
         </div>
