@@ -23,12 +23,12 @@ class DB{
     $connection->close();
   }
 
-  public static function CreateBook($title, $author, $isbn, $price, $userId) {
+  public static function CreateBook($title, $author, $isbn, $price, $userId, $image) {
     $connection = DB::CreateConnection();
     $sql = $connection->prepare("
-      INSERT INTO Book(title, author, ISBN, price, user_id) VALUES(?, ?, ?, ?, ?)
+      INSERT INTO Book(title, author, ISBN, price, user_id, image) VALUES(?, ?, ?, ?, ?, ?)
     ");
-    $sql->bind_param("ssssi", $title, $author, $isbn, $price, $userId);
+    $sql->bind_param("ssssib", $title, $author, $isbn, $price, $userId, $image);
     $sql->execute();
     $connection->close();
   }
@@ -88,7 +88,7 @@ class DB{
   public static function GetAllBooks() {
     $connection = DB::CreateConnection();
     $sql = $connection->query("
-    SELECT Book.title, Book.author, Book.ISBN, Book.price,
+    SELECT Book.title, Book.author, Book.ISBN, Book.price, Book.image,
 	         Book_Status.purchased, Book_Status.`condition`,
            `Usage`.major, `Usage`.course, `Usage`.instructor
     FROM Book, Book_Status, `Usage`
@@ -104,12 +104,4 @@ class DB{
   }
 
 }
-
-// TODO Join query for displaying market
-// SELECT Book.title, Book.author, Book.ISBN, Book.price,
-// 	   Book_Status.`condition`, Book_Status.purchased,
-//        final_lee01.Usage.major, final_lee01.Usage.course, final_lee01.Usage.instructor
-// FROM Book, Book_Status, `Usage`
-// WHERE Book.id=Book_Status.book_id
-// ORDER BY Book.id
  ?>

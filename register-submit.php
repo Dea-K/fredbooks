@@ -10,11 +10,17 @@ if(isset($_SESSION["logedUserName"]) &&
 
 if(isset($_POST["register-book-button"])) {
   $_SESSION["logedID"] = DB::UserIdByUsernameAndPassword($logedUN, $logedPW);
+
+        $image = addslashes($_FILES['book-image']['tmp_name']);
+        $image = file_get_contents($image);
+        $image = base64_encode($image);
+
   DB::CreateBook($_POST["book-title"],
                   $_POST["book-author"],
                   $_POST["book-isbn"],
                   $_POST["book-price"],
-                  $_SESSION["logedID"]);
+                  $_SESSION["logedID"],
+                  $image);
   $bookId = DB::GetBookId($_POST["book-title"],
                           $_POST["book-author"],
                           $_POST["book-isbn"],

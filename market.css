@@ -164,3 +164,8 @@
 .book-table tr:nth-of-type(2n), .book-status-table tr:nth-of-type(2n), .usage-table tr:nth-of-type(2n) {
   background-color: #9999ff;
 }
+
+.book-image {
+  width: 100%;
+  height: 100%;
+}

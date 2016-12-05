@@ -12,7 +12,9 @@
         <div class="drop-market-container">
           <table class="drop-market-btn">
             <tr>
-              <td rowspan="2"  class="book-image">IMAGE</td>
+              <td rowspan="2">
+                <img class="book-image" src="data:image/jpg;base,' . $book['image'] . '"/>
+              </td>
               <td class="left-border">' . $book['title'] . '</td>
               <td class="left-border">' . $book['course'] . '</td>
               <td class="left-border">$ ' . $book['price'] . '</td>

@@ -1,6 +1,6 @@
 <?php include "top.php"; ?>
 <?php include "login.php"; ?>
-<form class="register-book-form" action="register-submit.php" method="post">
+<form class="register-book-form" action="register-submit.php" method="post" enctype="multipart/form-data">
   <div class="book-child">
     <fieldset>
       <legend>Book Information</legend>
